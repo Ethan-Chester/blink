@@ -33,8 +33,8 @@ export const Todo: React.FC<TodoProps>= ({task}) => {
         <div onClick={() => handleToggleComplete(task.id)} className={`${task.completed ? "completed-bar todo": "todo"}`}>
             <p className={`${task.completed ? 'completed': ""}`}>{task.task}</p>
             <div>
-                <FontAwesomeIcon icon ={faPenToSquare} onClick={() => handleEditTodo(task.id)}/>
-                <FontAwesomeIcon icon ={faEye} onClick={() => handleDeleteTodo(task.id)}/>
+                <FontAwesomeIcon className="edit-icon" icon ={faPenToSquare} onClick={() => handleEditTodo(task.id)}/>
+                <FontAwesomeIcon className="delete-icon" icon ={faEye} onClick={() => handleDeleteTodo(task.id)}/>
             </div>
         </div>
     )
