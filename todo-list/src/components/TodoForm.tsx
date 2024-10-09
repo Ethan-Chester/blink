@@ -28,8 +28,8 @@ export const TodoForm: React.FC<TodoFormProps> = ({addTodo}) => {
 
     return(
         <form className="TodoForm" onSubmit={handleSubmit}>
-            <input type="text" className="todo-input" value={value} placeholder="Enter Task..." onChange={(e) => setValue(e.target.value)}/>
-            <button type="submit" id="todo-btn" className="todo-btn">Add Task</button>
+            <input type="text" className="todo-input no-highlight" value={value} placeholder="Enter Task..." onChange={(e) => setValue(e.target.value)}/>
+            <button type="submit" id="todo-btn" className="todo-btn no-highlight">Add Task</button>
         </form>
     )
 }

@@ -24,6 +24,6 @@ export const TodoIdentifier: React.FC = () => {
 
 
     return (
-        <div className='todolist-identifier'><h1 className='todolist-identifier-text'>Todo List ID: <span>{todoListID}</span></h1><FontAwesomeIcon id="copy-icon" className="copy-icon" icon ={faCopy} size="1x" onClick={handleCopyToClipboard}/> <h2  id="copied-message" style={{ visibility: 'hidden' }}>COPIED TO CLIPBOARD</h2></div>
+        <div className='todolist-identifier'><h1 className='todolist-identifier-text'>ID: <span>{todoListID}</span></h1><FontAwesomeIcon id="copy-icon" className="copy-icon" icon ={faCopy} size="1x" onClick={handleCopyToClipboard}/> <h2  id="copied-message" style={{ visibility: 'hidden' }}>COPIED TO CLIPBOARD</h2></div>
     );
 };

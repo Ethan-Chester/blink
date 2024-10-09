@@ -15,13 +15,15 @@ export const TodoWrapper = () => {
 
     const handleAddTodo = (task: string) => {
         dispatch(addTodo(task)); 
-        console.log(todos)
     };
+
+    const incompleteTodosCount = todos.filter(todo => !todo.completed).length;
 
     return(
     <div>
-        <h1 className="blink-logo">BLINK<FontAwesomeIcon icon ={faEye} size="xs"/></h1>
+        <h1 className="blink-logo no-highlight">BLINK<FontAwesomeIcon icon ={faEye} size="xs"/></h1>
         <div className="TodoWrapper">
+            <h1 className="no-highlight">Tasks Left: {incompleteTodosCount} / {todos.length}</h1>
             <TodoForm addTodo={handleAddTodo}/>
             {todos.map((todo) =>(
                 todo.isEditing ? (
