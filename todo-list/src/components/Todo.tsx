@@ -16,7 +16,15 @@ export const Todo: React.FC<TodoProps>= ({task}) => {
 
     const handleToggleComplete = (id: string) => {
         dispatch(toggleComplete(id));
-
+        let editBtn = document.getElementById("edit-icon");
+        let deleteBtn = document.getElementById("delete-icon");
+        if(editBtn !== null){
+            editBtn.classList.toggle("completed")
+        }
+        if(deleteBtn !== null){
+            deleteBtn.classList.toggle("completed")
+        }
+        
     };
 
     const handleDeleteTodo = (id: string) => {
@@ -27,13 +35,12 @@ export const Todo: React.FC<TodoProps>= ({task}) => {
         dispatch(editTodo(id));
     }
 
-
     return(
         <div onClick={() => handleToggleComplete(task.id)} className={`${task.completed ? "completed-bar todo": "todo"}`}>
             <p className={`${task.completed ? 'completed no-highlight': "no-highlight"}`}>{task.task}</p>
             <div>
-                <FontAwesomeIcon className="edit-icon" icon ={faPenToSquare} onClick={() => handleEditTodo(task.id)}/>
-                <FontAwesomeIcon className="delete-icon" icon ={faEye} onClick={() => handleDeleteTodo(task.id)}/>
+                <FontAwesomeIcon id={`edit-icon-${task.id}`} className={`edit-icon ${task.completed ? "completed" : ""}`} icon ={faPenToSquare} onClick={() => handleEditTodo(task.id)}/>
+                <FontAwesomeIcon id={`delete-icon-${task.id}`} className={`delete-icon ${task.completed ? "completed" : ""}`} icon ={faEye} onClick={() => handleDeleteTodo(task.id)}/>
             </div>
         </div>
     )

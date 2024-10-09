@@ -2,10 +2,10 @@
 
 :root{
 
-  --purple: #000000;
+  --purple: #0e0d0d;
   --purple2: #161616;
   --white: #e4e4e4;
-  --list-color: #0E111A;
+  --list-color: #202022;
   
   
   /* --purple: #703eef;
@@ -193,7 +193,7 @@ input:not(:placeholder-shown){
   font-size: 14px;
   margin-left: 8px;
   font-weight: 100;
-
+  color: greenyellow;
 }
 
 .todolist-identifier-text{
@@ -233,7 +233,7 @@ input:not(:placeholder-shown){
   scale: 1.3;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: black;
+  
 }
 
 .edit-icon{
@@ -250,7 +250,6 @@ input:not(:placeholder-shown){
 
 .delete-icon:hover, .edit-icon:hover {
   transform: scale(1.3);
-  color: #703eef;
 }
 
 
