@@ -1,13 +1,12 @@
 import React, {useState} from "react";
 import { TodoForm } from "./TodoForm";
+import { EditTodoForm } from "./EditTodoForm";
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../state/store';
-import { addTodo, deleteTodo } from '../state/todo/todoSlice';
-import { v4 as uuidv4 } from "uuid";
+import { addTodo } from '../state/todo/todoSlice';
 import { Todo } from "./Todo";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons/faEye";
-uuidv4();
 
 
 export const TodoWrapper = () => {
@@ -24,8 +23,10 @@ export const TodoWrapper = () => {
         <h1 className="blink-logo">BLINK<FontAwesomeIcon icon ={faEye} size="xs"/></h1>
         <div className="TodoWrapper">
             <TodoForm addTodo={handleAddTodo}/>
-            {todos.map((todo, index) =>(
-                <Todo task={todo} key={index}/>
+            {todos.map((todo) =>(
+                todo.isEditing ? (
+                    <EditTodoForm task={todo} key={todo.id}/>
+                ) : ( <Todo task={todo} key={todo.id}/>)
             ))}
         </div>
     </div>

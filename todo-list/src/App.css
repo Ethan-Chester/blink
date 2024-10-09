@@ -3,6 +3,19 @@
 :root{
   --purple: #703eef;
   --purple2: #582dc4;
+  --white: #e4e4e4;
+}
+
+::selection {
+  background-color: #ffffff; 
+  color: #000000; 
+}
+
+.no-highlight {
+  -webkit-user-select: none;  /* Safari */
+  -moz-user-select: none;     /* Firefox */
+  -ms-user-select: none;      /* Internet Explorer/Edge */
+  user-select: none;          /* Standard */
 }
 
 
@@ -25,7 +38,7 @@ body {
 }
 
 h1 {
-  color: #fff;
+  color: var(--white);
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
   font-family: "Squada One";
@@ -52,7 +65,7 @@ h1 {
   margin-top: 1rem;
   margin-bottom: 2rem;
   width: 300px;
-  color: #fff;
+  color: var(--white);
   font-family: "Paytone One";
   transition: all .2s;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.05);
@@ -69,7 +82,7 @@ input:not(:placeholder-shown){
 
 .todo-btn {
   background: var(--purple);
-  color: #ffffff;
+  color: var(--white);
   border: none;
   padding: 0.55rem;
   cursor: pointer;
@@ -88,7 +101,7 @@ input:not(:placeholder-shown){
   justify-content: space-between;
   align-items: center;
   background: var(--purple);
-  color: #fff;
+  color: var(--white);
   padding: 1.2rem 1rem;
   border-radius: 5px;
   margin-bottom: 1.3rem;
@@ -100,6 +113,9 @@ input:not(:placeholder-shown){
 
 .todo p{
   font-family: "Paytone One";
+  width: 250px;
+  word-wrap: break-word;
+  text-align: left;
 }
 
 .todo:hover{
@@ -111,7 +127,7 @@ input:not(:placeholder-shown){
 }
 
 .incompleted {
-  color: #fff;
+  color: var(--white);
   cursor: pointer;
 }
 
@@ -139,17 +155,63 @@ input:not(:placeholder-shown){
   }
 }
 
+.shake{
+  animation: shake 0.3s ease-in-out;
+  background-color: red;
+}
 
 @keyframes shake {
   0%, 100% {
     transform: translateX(0);
   }
   10%, 30%, 50%, 70%, 90% {
-    transform: translateX(-2px);
+    transform: translateX(-3px);
   }
   20%, 40%, 60%, 80% {
-    transform: translateX(2px);
+    transform: translateX(3px);
   }
+}
+
+.todolist-identifier{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 20px;
+  display: flex;
+}
+
+.todolist-identifier h2{
+  font-family: "Paytone One";
+  font-size: 14px;
+  margin-left: 8px;
+  font-weight: 100;
+
+}
+
+.todolist-identifier-text{
+    white-space: nowrap; 
+    overflow: hidden; 
+    text-overflow: ellipsis;
+
+    
+    font-size: 18px;
+    font-weight: 100;
+    width: 200px;
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.todolist-identifier span{
+  font-family: "Paytone One";
+  font-weight: 100;
+  font-size: 15px;
+  margin-right: 10px;
+}
+
+.copy-icon{
+  color: var(--white);
+  margin-left: 8px;
+  cursor: pointer;
 }
 
 .edit-icon,
@@ -178,3 +240,4 @@ input:not(:placeholder-shown){
   font-weight: 800;
   letter-spacing: 9px;
 }
+

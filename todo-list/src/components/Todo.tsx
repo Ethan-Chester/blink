@@ -1,7 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons/faEye";
 import { Todo as TodoInterface, toggleComplete, deleteTodo, editTodo} from '../state/todo/todoSlice';
 import { useDispatch } from 'react-redux';

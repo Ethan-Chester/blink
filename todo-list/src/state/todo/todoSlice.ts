@@ -8,6 +8,11 @@ export interface Todo {
     isEditing: boolean;
 }
 
+// interface EditTaskPayload {
+//     id: string;
+//     task: string;
+// }
+
 const initialState: Todo[] = []
 
 const todoSlice = createSlice({
@@ -15,12 +20,12 @@ const todoSlice = createSlice({
     initialState,
     reducers: {
         addTodo: (state, action: PayloadAction<string>) =>{
-            state.push({
-                id: uuidv4(),
-                task: action.payload,
-                completed: false,
-                isEditing: false,
-            })
+                state.push({
+                    id: uuidv4(),
+                    task: action.payload,
+                    completed: false,
+                    isEditing: false,
+                })
         },
         toggleComplete: (state, action: PayloadAction<string>) => {
             const todo = state.find((todo) => todo.id === action.payload)
@@ -35,11 +40,21 @@ const todoSlice = createSlice({
             const todo = state.find((todo) => todo.id === action.payload);
             if (todo) {
                 todo.isEditing = !todo.isEditing;
-                console.log("rename")
+            }
+        },
+        editTask: (state, action: PayloadAction<[string, string]>) =>{
+            
+            const [task, id] = action.payload;
+            const todo = state.find((todo) => todo.id === id);
+            
+            if (todo) {
+                todo.task = task; 
+                todo.isEditing = !todo.isEditing;
+                todo.completed = false;
             }
         },
     },
 });
 
-export const { addTodo, toggleComplete, deleteTodo, editTodo } = todoSlice.actions;
+export const { addTodo, toggleComplete, deleteTodo, editTodo, editTask } = todoSlice.actions;
 export default todoSlice.reducer;
