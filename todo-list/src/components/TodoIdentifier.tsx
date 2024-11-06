@@ -11,9 +11,9 @@ export const TodoIdentifier: React.FC = () => {
             console.log("Todo List ID copied to clipboard:", todoListID);
             const copiedMessage = document.getElementById('copied-message');
             if (copiedMessage) {
-              copiedMessage.style.visibility = 'visible'; // Show copied message
+              copiedMessage.style.visibility = 'visible'; 
               setTimeout(() => {
-                copiedMessage.style.visibility = 'hidden'; // Hide after 2 seconds
+                copiedMessage.style.visibility = 'hidden';
               }, 2000);
             }
           })

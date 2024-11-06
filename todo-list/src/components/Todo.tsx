@@ -2,6 +2,7 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons/faEye";
+import { faX } from "@fortawesome/free-solid-svg-icons";
 import { Todo as TodoInterface, toggleComplete, deleteTodo, editTodo} from '../state/todo/todoSlice';
 import { useDispatch } from 'react-redux';
 
@@ -40,7 +41,7 @@ export const Todo: React.FC<TodoProps>= ({task}) => {
             <p className={`${task.completed ? 'completed no-highlight': "no-highlight"}`}>{task.task}</p>
             <div>
                 <FontAwesomeIcon id={`edit-icon-${task.id}`} className={`edit-icon ${task.completed ? "completed" : ""}`} icon ={faPenToSquare} onClick={() => handleEditTodo(task.id)}/>
-                <FontAwesomeIcon id={`delete-icon-${task.id}`} className={`delete-icon ${task.completed ? "completed" : ""}`} icon ={faEye} onClick={() => handleDeleteTodo(task.id)}/>
+                <FontAwesomeIcon id={`delete-icon-${task.id}`} className={`delete-icon ${task.completed ? "completed" : ""}`} icon ={faX} onClick={() => handleDeleteTodo(task.id)}/>
             </div>
         </div>
     )

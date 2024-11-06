@@ -8,11 +8,6 @@ export interface Todo {
     isEditing: boolean;
 }
 
-// interface EditTaskPayload {
-//     id: string;
-//     task: string;
-// }
-
 const initialState: Todo[] = []
 
 const todoSlice = createSlice({
